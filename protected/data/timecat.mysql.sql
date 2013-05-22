@@ -1,6 +1,6 @@
 drop database timecat4;
 create database timecat4 DEFAULT CHARACTER SET utf8 DEFAULT COLLATE utf8_general_ci;
-GRANT ALL PRIVILEGES ON timecat4.* to ''@'localhost' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON timecat4.* to 'timecat4'@'localhost' WITH GRANT OPTION;
 use timecat4;
 
 create table tc_name_title (
@@ -35,8 +35,6 @@ create table tc_user_invites (
   id int not null primary key auto_increment,
   inviter_id int not null,
   invitee_id int not null,
-  invited_date datetime not null,
-  accepted_date datetime not null,
   foreign key (inviter_id) references tc_user(id),
   foreign key (invitee_id) references tc_user(id)
 );
