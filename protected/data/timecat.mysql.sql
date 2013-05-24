@@ -5,15 +5,15 @@ use timecat4;
 
 create table tc_name_title (
   id int not null primary key auto_increment,
-  title varchar(20) not null,
+  title varchar(20) not null unique,
   description varchar(125)
 );
 
 create table tc_time_zone (
   id int not null primary key auto_increment,
-  location varchar(50) not null,  
+  location varchar(50) not null unique,  
   gmt_time_offset int not null,
-  description varchar(125)
+  description varchar(128)
 );
 create table tc_user (
   id int not null primary key auto_increment,
@@ -23,12 +23,11 @@ create table tc_user (
   first_name varchar(128) not null,
   last_name varchar(128) not null,
   institution varchar(128) not null,
-  time_zone_id int not null,
-  date_registered datetime not null,
-  date_joined datetime not null,
+  create_date datetime default null,
+  joined_time datetime default null,
+  last_login_time datetime default null,
   status int not null,
-  foreign key (name_title_id) references tc_name_title(id),
-  foreign key (time_zone_id) references tc_time_zone(id)
+  foreign key (name_title_id) references tc_name_title(id)
 );
 
 create table tc_user_invites (
@@ -59,7 +58,6 @@ insert into tc_time_zone(location, gmt_time_offset) values ('Tijuana', -8);
 insert into tc_time_zone(location, gmt_time_offset) values ('Arizona', -7);
 insert into tc_time_zone(location, gmt_time_offset) values ('Mountain Time (US & Canada)', -7);
 insert into tc_time_zone(location, gmt_time_offset) values ('Chihuahua', -7);
-insert into tc_time_zone(location, gmt_time_offset) values ('La Paz', -7);
 insert into tc_time_zone(location, gmt_time_offset) values ('Mazatlan', -7);
 insert into tc_time_zone(location, gmt_time_offset) values ('Central Time (US & Canada)', -6);
 insert into tc_time_zone(location, gmt_time_offset) values ('Central America', -6);

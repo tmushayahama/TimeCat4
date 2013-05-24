@@ -42,18 +42,18 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'time_zone_id'); ?>
-		<?php echo $form->textField($model,'time_zone_id'); ?>
+		<?php echo $form->label($model,'create_date'); ?>
+		<?php echo $form->textField($model,'create_date'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'date_registered'); ?>
-		<?php echo $form->textField($model,'date_registered'); ?>
+		<?php echo $form->label($model,'joined_time'); ?>
+		<?php echo $form->textField($model,'joined_time'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'date_joined'); ?>
-		<?php echo $form->textField($model,'date_joined'); ?>
+		<?php echo $form->label($model,'last_login_time'); ?>
+		<?php echo $form->textField($model,'last_login_time'); ?>
 	</div>
 
 	<div class="row">

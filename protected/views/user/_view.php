@@ -34,16 +34,16 @@
 	<br />
 
 	<?php /*
-	<b><?php echo CHtml::encode($data->getAttributeLabel('time_zone_id')); ?>:</b>
-	<?php echo CHtml::encode($data->time_zone_id); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('create_date')); ?>:</b>
+	<?php echo CHtml::encode($data->create_date); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('date_registered')); ?>:</b>
-	<?php echo CHtml::encode($data->date_registered); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('joined_time')); ?>:</b>
+	<?php echo CHtml::encode($data->joined_time); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('date_joined')); ?>:</b>
-	<?php echo CHtml::encode($data->date_joined); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('last_login_time')); ?>:</b>
+	<?php echo CHtml::encode($data->last_login_time); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>

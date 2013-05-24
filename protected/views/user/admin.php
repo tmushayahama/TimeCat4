@@ -53,9 +53,9 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'last_name',
 		/*
 		'institution',
-		'time_zone_id',
-		'date_registered',
-		'date_joined',
+		'create_date',
+		'joined_time',
+		'last_login_time',
 		'status',
 		*/
 		array(

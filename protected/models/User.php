@@ -11,16 +11,15 @@
  * @property string $first_name
  * @property string $last_name
  * @property string $institution
- * @property integer $time_zone_id
- * @property string $date_registered
- * @property string $date_joined
+ * @property string $create_date
+ * @property string $joined_time
+ * @property string $last_login_time
  * @property integer $status
  *
  * The followings are the available model relations:
- * @property TcNameTitle $nameTitle
- * @property TcTimeZone $timeZone
- * @property TcUserInvites[] $tcUserInvites
- * @property TcUserInvites[] $tcUserInvites1
+ * @property NameTitle $nameTitle
+ * @property UserInvites[] $userInvites
+ * @property UserInvites[] $userInvites1
  */
 class User extends CActiveRecord
 {
@@ -50,12 +49,13 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, name_title_id, first_name, last_name, institution, time_zone_id, date_registered, date_joined, status', 'required'),
-			array('name_title_id, time_zone_id, status', 'numerical', 'integerOnly'=>true),
+			array('username, password, name_title_id, first_name, last_name, institution, status', 'required'),
+			array('name_title_id, status', 'numerical', 'integerOnly'=>true),
 			array('username, password, first_name, last_name, institution', 'length', 'max'=>128),
+			array('create_date, joined_time, last_login_time', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, username, password, name_title_id, first_name, last_name, institution, time_zone_id, date_registered, date_joined, status', 'safe', 'on'=>'search'),
+			array('id, username, password, name_title_id, first_name, last_name, institution, create_date, joined_time, last_login_time, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,10 +67,9 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'nameTitle' => array(self::BELONGS_TO, 'TcNameTitle', 'name_title_id'),
-			'timeZone' => array(self::BELONGS_TO, 'TcTimeZone', 'time_zone_id'),
-			'tcUserInvites' => array(self::HAS_MANY, 'TcUserInvites', 'inviter_id'),
-			'tcUserInvites1' => array(self::HAS_MANY, 'TcUserInvites', 'invitee_id'),
+			'nameTitle' => array(self::BELONGS_TO, 'NameTitle', 'name_title_id'),
+			'userInvites' => array(self::HAS_MANY, 'UserInvites', 'inviter_id'),
+			'userInvites1' => array(self::HAS_MANY, 'UserInvites', 'invitee_id'),
 		);
 	}
 
@@ -87,9 +86,9 @@ class User extends CActiveRecord
 			'first_name' => 'First Name',
 			'last_name' => 'Last Name',
 			'institution' => 'Institution',
-			'time_zone_id' => 'Time Zone',
-			'date_registered' => 'Date Registered',
-			'date_joined' => 'Date Joined',
+			'create_date' => 'Create Date',
+			'joined_time' => 'Joined Time',
+			'last_login_time' => 'Last Login Time',
 			'status' => 'Status',
 		);
 	}
@@ -112,9 +111,9 @@ class User extends CActiveRecord
 		$criteria->compare('first_name',$this->first_name,true);
 		$criteria->compare('last_name',$this->last_name,true);
 		$criteria->compare('institution',$this->institution,true);
-		$criteria->compare('time_zone_id',$this->time_zone_id);
-		$criteria->compare('date_registered',$this->date_registered,true);
-		$criteria->compare('date_joined',$this->date_joined,true);
+		$criteria->compare('create_date',$this->create_date,true);
+		$criteria->compare('joined_time',$this->joined_time,true);
+		$criteria->compare('last_login_time',$this->last_login_time,true);
 		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(

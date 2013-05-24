@@ -52,21 +52,21 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'time_zone_id'); ?>
-		<?php echo $form->textField($model,'time_zone_id'); ?>
-		<?php echo $form->error($model,'time_zone_id'); ?>
+		<?php echo $form->labelEx($model,'create_date'); ?>
+		<?php echo $form->textField($model,'create_date'); ?>
+		<?php echo $form->error($model,'create_date'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'date_registered'); ?>
-		<?php echo $form->textField($model,'date_registered'); ?>
-		<?php echo $form->error($model,'date_registered'); ?>
+		<?php echo $form->labelEx($model,'joined_time'); ?>
+		<?php echo $form->textField($model,'joined_time'); ?>
+		<?php echo $form->error($model,'joined_time'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'date_joined'); ?>
-		<?php echo $form->textField($model,'date_joined'); ?>
-		<?php echo $form->error($model,'date_joined'); ?>
+		<?php echo $form->labelEx($model,'last_login_time'); ?>
+		<?php echo $form->textField($model,'last_login_time'); ?>
+		<?php echo $form->error($model,'last_login_time'); ?>
 	</div>
 
 	<div class="row">
